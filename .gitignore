@@ -1,2 +1,12 @@
 *pyc
-/static
+
+!static/
+static/*
+!static/src/
+static/src/*
+!static/src/input.css
+!static/src/output.css
+
+
+
+node_modules
