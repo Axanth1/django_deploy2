@@ -4,7 +4,6 @@
 static/*
 !static/src/
 static/src/*
-!static/CACHE
 !static/src/input.css
 !static/src/output.css
 
