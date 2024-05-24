@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'compressor'
 ]
 
 MIDDLEWARE = [
@@ -119,16 +118,23 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static-global',
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-COMPRESS_ROOT = BASE_DIR / 'static'
-
-COMPRESS_ENABLED = True
-
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+# /** @type {import('tailwindcss').Config} */
+# module.exports = {
+#   content: [
+#     './**/templates/**/*.html',
+#     './**/templates/*.html',
+#     './templates/*.html'
+#   ],
+#   theme: {
+#     extend: {},
+#   },
+#   plugins: [],
+# }

@@ -2,11 +2,7 @@
 
 !static/
 static/*
-!static/src/
-static/src/*
-!static/src/input.css
-!static/src/output.css
-static/CACHE
-
+!static/main.css
+!static/main.min.css
 
 node_modules
