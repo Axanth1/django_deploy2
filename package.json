@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "postcss ./static/main.css -o ./static/main.min.css --watch"
+    "build": "postcss ./tailwind/main.css -o ./tailwind/main.min.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
