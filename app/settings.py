@@ -1,4 +1,5 @@
 import os
+from urllib.parse import urlparse
 from dotenv import load_dotenv
 from pathlib import Path
 load_dotenv()
@@ -49,12 +50,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.getenv("DATABASE_URL", "") != "":
+    r = urlparse(os.environ.get("DATABASE_URL"))
+    DATABASES = {
+        'default': {
+           'ENGINE': "django.db.backends.postgresql_psycopg2" ,
+           'NAME': os.path.relpath(r.path, "/"),
+           'USER': r.username,
+           'PASSWORD': r.password,
+           'HOST': r.hostname,
+           'PORT': r.port,
+           'OPTIONS': {
+               'sslmode': 'require'
+           }
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
